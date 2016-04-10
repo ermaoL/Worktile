@@ -1,10 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myWork">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Worktile</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/common.css">
 </head>
 <body>
+<div class="all">
+    <div class="menu">
+        <div class="portrait">
 
+        </div>
+
+        <div class="work">
+            <a href="#/workView">work</a>
+        </div>
+        <div class="search">
+            <a href="#">search</a>
+        </div>
+        <div class="message">
+                <a href="#">msg</a>
+        </div>
+        <div class="team">
+            <a href="#">team</a>
+        </div>
+        <div class="project">
+            <a data-toggle="modal" data-target="#prjModal">project</a>
+            <!--<a href="#/projectView">project</a>-->
+        </div>
+
+
+    </div>
+
+    <div class="content">
+        <div ng-view></div>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="prjModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="display: inline;">
+                    <h4 class="modal-title" id="prjModalLabel" style="display: inline;">
+                        项目
+                    </h4>
+                    <img src="#" data-toggle="modal" data-target="#newPrjModal" style="float: right; vertical-align: top"/>
+                </div>
+
+
+            </div>
+            <div class="modal-body">
+                <input type="text" placeholder="快速查找项目"/>
+                <div>
+                    <a href="#/projectView">项目</a>
+                </div>
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="newPrjModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="newPrjModalLabel">
+                        新建项目
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>项目信息：</p>
+                    <input type="text" placeholder="请输入项目名称"/>
+                    <input type="text" placeholder="项目描述（可选）">
+                    <p>项目所属：</p>
+                    <select>
+                        <option>
+                            请选择所有者：
+                        </option>
+                    </select>
+                    <p>项目公开性：</p>
+                    <select>
+                        <option>
+                            请选择公开性：
+                        </option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        保存
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+
+<script type="text/javascript" src="scripts/vendor/jquery-2.2.1.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/jquery-ui.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/angular.js"></script>
+<script type="text/javascript" src="scripts/vendor/angular-route.js"></script>
+<script type="text/javascript" src="scripts/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/mustache.min.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="scripts/controllers/workCtrl.js"></script>
+<script type="text/javascript" src="scripts/controllers/projectCtrl.js"></script>
 </body>
 </html>
